@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #7dfc42;
+        }
+        .counter-container {
+            text-align: center;
+            background-color: #81e9cf;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 1.4px 1.4px  30px #ff0000;
+        }
+        h1 {
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 10px rgb(245, 42, 42),
+                         0px 0px 20px rgb(245, 42, 42),
+                         0px 0px 40px rgb(245, 42, 42),
+                         0px 0px 80px rgb(245, 42, 42);
+
+        }
+        .count {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:disabled {
+            background-color: #ccc;
+        }
+        .button-decrement {
+            background-color: #f44336;
+        } 
+        button:hover{
+            transition: ease-in-out 0.20s;
+            transform: scale(1.05);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <h1>number Counter App</h1>
+        <div class="count" id="counter">0</div>
+        <button class="button button-decrement" id="decrementBtn" onclick="changeCount(-1)">Decrement</button>
+        <button class="button" id="incrementBtn" onclick="changeCount(1)">Increment</button>
+    </div>
+
+    <script>
+        let count = 0;
+
+       
+        function changeCount(amount) {
+            count += amount;
+            document.getElementById("counter").textContent = count;
+
+            document.getElementById("decrementBtn").disabled = count <= 0;
+        }
+
+       
+        document.getElementById("decrementBtn").disabled = count <= 0;
+    </script>
+</body>
+</html>
